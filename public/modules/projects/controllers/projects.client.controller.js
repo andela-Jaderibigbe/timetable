@@ -61,5 +61,29 @@ angular.module('projects').controller('ProjectsController', ['$scope', '$statePa
 				projectId: $stateParams.projectId
 			});
 		};
+
+		//inactivate a project
+		$scope.inactivateProject = function() {
+			var project = $scope.project;
+
+			project.isActive = false;
+			project.$update(function() {
+				$location.path('projects/' + project._id);
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		//activate inactivated project
+		$scope.inactivateProject = function() {
+			var project = $scope.project;
+
+			project.isActive = true;
+			project.$update(function() {
+				$location.path('projects/' + project._id);
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
 	}
 ]);

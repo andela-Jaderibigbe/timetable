@@ -13,7 +13,6 @@ var AssignmentSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Assignment name',
 		trim: true
 	},
 	created: {
@@ -30,11 +29,10 @@ var AssignmentSchema = new Schema({
 		ref: 'Project'	
 	},
 
-	people:[
-	{type: Schema.ObjectId,
-		ref: 'Person'}
-		]
-	,
+	people:{
+		type: Schema.ObjectId,
+		ref: 'Person'
+	},
 
 	startDate:{
 		type: Date
@@ -43,6 +41,7 @@ var AssignmentSchema = new Schema({
 	endDate:{
 		type: Date
 	}
+
 });
 
 mongoose.model('Assignment', AssignmentSchema);

@@ -23,7 +23,13 @@ var ProjectSchema = new Schema({
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'
+	},
+
+	isActive: {
+		type: Boolean,
+		default: true
 	}
+
 });
 
 mongoose.model('Project', ProjectSchema);

@@ -10,6 +10,8 @@ angular.module('assignments').controller('AssignmentsController', ['$scope', '$s
 			// Create new Assignment object
 			var assignment = new Assignments ({
 				name: this.name
+				project: this.project
+				people: this.person
 			});
 
 			// Redirect after save
